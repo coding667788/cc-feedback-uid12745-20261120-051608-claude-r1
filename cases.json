@@ -1,0 +1,2223 @@
+{
+  "cases": [
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "01-happy-two-rotations",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "root:2",
+              "root:3",
+              "snapshot:stable:1",
+              "target:svc-a:1",
+              "target:lib-c:1"
+            ],
+            "roots": [
+              {
+                "expires_at": 9200,
+                "issued_at": 1100,
+                "root": {
+                  "holders": [
+                    "root-carol",
+                    "root-dave",
+                    "root-alice"
+                  ],
+                  "threshold": 2
+                },
+                "sign": [
+                  {
+                    "holder": "root-alice",
+                    "key": "alice-k1"
+                  },
+                  {
+                    "holder": "root-bob",
+                    "key": "bob-k1"
+                  },
+                  {
+                    "holder": "root-carol",
+                    "key": "carol-k1"
+                  },
+                  {
+                    "holder": "root-dave",
+                    "key": "dave-k1"
+                  }
+                ],
+                "snapshot": {
+                  "holders": [
+                    "snap-eve",
+                    "snap-frank"
+                  ],
+                  "paths": [
+                    "app",
+                    "lib"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "target": {
+                  "holders": [
+                    "tgt-heidi",
+                    "tgt-ivan"
+                  ],
+                  "paths": [
+                    "app/services",
+                    "lib/core"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "version": 2
+              },
+              {
+                "expires_at": 9400,
+                "issued_at": 1200,
+                "root": {
+                  "holders": [
+                    "root-alice",
+                    "root-dave",
+                    "root-bob"
+                  ],
+                  "threshold": 2
+                },
+                "sign": [
+                  {
+                    "holder": "root-carol",
+                    "key": "carol-k1"
+                  },
+                  {
+                    "holder": "root-dave",
+                    "key": "dave-k1"
+                  },
+                  {
+                    "holder": "root-alice",
+                    "key": "alice-k1"
+                  },
+                  {
+                    "holder": "root-bob",
+                    "key": "bob-k1"
+                  }
+                ],
+                "snapshot": {
+                  "holders": [
+                    "snap-eve",
+                    "snap-frank"
+                  ],
+                  "paths": [
+                    "app",
+                    "lib"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "target": {
+                  "holders": [
+                    "tgt-heidi",
+                    "tgt-ivan"
+                  ],
+                  "paths": [
+                    "app/services",
+                    "lib/core"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "version": 3
+              }
+            ],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "target": "svc-a:1"
+                  },
+                  {
+                    "target": "lib-c:1"
+                  }
+                ],
+                "expires_at": 8000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 3,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 1
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1001,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:svc-a-v1",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 3,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              },
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "lib-c",
+                "issued_at": 1001,
+                "path": "lib/core/lib-c.so",
+                "payload": "text:lib-c-v1",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 3,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              }
+            ]
+          },
+          "expect": {
+            "channels": {
+              "stable": 1
+            },
+            "root_steps": 2,
+            "root_version": 3,
+            "status": "committed",
+            "targets": {
+              "lib-c": 1,
+              "svc-a": 1
+            }
+          },
+          "kind": "update",
+          "label": "rotations and two targets",
+          "package_name": "pkg-01",
+          "request_id": "req-01",
+          "trusted_time": 1300
+        },
+        {
+          "expect": {
+            "ok": true,
+            "root_version": 3
+          },
+          "kind": "query",
+          "query": {
+            "kind": "audit"
+          }
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "chain": [
+          {
+            "expires_at": 9000,
+            "issued_at": 1000,
+            "root": {
+              "holders": [
+                "root-alice",
+                "root-bob",
+                "root-carol"
+              ],
+              "threshold": 2
+            },
+            "sign": [
+              {
+                "holder": "root-alice",
+                "key": "alice-k1"
+              },
+              {
+                "holder": "root-bob",
+                "key": "bob-k1"
+              }
+            ],
+            "snapshot": {
+              "holders": [
+                "snap-eve",
+                "snap-frank"
+              ],
+              "paths": [
+                "app",
+                "lib"
+              ],
+              "tags": [
+                "core"
+              ],
+              "threshold": 2
+            },
+            "target": {
+              "holders": [
+                "tgt-heidi",
+                "tgt-ivan"
+              ],
+              "paths": [
+                "app/services",
+                "lib/core"
+              ],
+              "tags": [
+                "core"
+              ],
+              "threshold": 2
+            },
+            "version": 1
+          }
+        ],
+        "root": {
+          "expires_at": 9200,
+          "issued_at": 1100,
+          "root": {
+            "holders": [
+              "root-carol",
+              "root-dave",
+              "root-alice"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            },
+            {
+              "holder": "root-carol",
+              "key": "carol-k1"
+            },
+            {
+              "holder": "root-dave",
+              "key": "dave-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 2
+        },
+        "trusted_time": 1000
+      },
+      "name": "02-reject-root-rollback",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "root:1"
+            ],
+            "roots": [],
+            "snapshots": [],
+            "targets": []
+          },
+          "expect": {
+            "error_code": "E_ROOT_ROLLBACK",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "offer v1 after v2",
+          "package_name": "pkg-02",
+          "request_id": "req-02",
+          "trusted_time": 1300
+        },
+        {
+          "expect": {
+            "ok": true,
+            "root_version": 2
+          },
+          "kind": "query",
+          "query": {
+            "kind": "audit"
+          }
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "03-reject-old-root-quorum-missing",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "root:2"
+            ],
+            "roots": [
+              {
+                "expires_at": 9200,
+                "issued_at": 1100,
+                "root": {
+                  "holders": [
+                    "root-carol",
+                    "root-dave"
+                  ],
+                  "threshold": 2
+                },
+                "sign": [
+                  {
+                    "holder": "root-carol",
+                    "key": "carol-k1"
+                  },
+                  {
+                    "holder": "root-dave",
+                    "key": "dave-k1"
+                  }
+                ],
+                "snapshot": {
+                  "holders": [
+                    "snap-eve",
+                    "snap-frank"
+                  ],
+                  "paths": [
+                    "app",
+                    "lib"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "target": {
+                  "holders": [
+                    "tgt-heidi",
+                    "tgt-ivan"
+                  ],
+                  "paths": [
+                    "app/services",
+                    "lib/core"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "version": 2
+              }
+            ],
+            "snapshots": [],
+            "targets": []
+          },
+          "expect": {
+            "error_code": "E_ROOT_OLD_THRESHOLD",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "v2 signed only by the new role",
+          "package_name": "pkg-03",
+          "request_id": "req-03",
+          "trusted_time": 1300
+        },
+        {
+          "expect": {
+            "ok": true,
+            "root_version": 1
+          },
+          "kind": "query",
+          "query": {
+            "kind": "audit"
+          }
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "04-reject-shared-holder-fills-both-seats",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "root:2"
+            ],
+            "roots": [
+              {
+                "expires_at": 9200,
+                "issued_at": 1100,
+                "root": {
+                  "holders": [
+                    "root-alice",
+                    "root-bob"
+                  ],
+                  "threshold": 2
+                },
+                "sign": [
+                  {
+                    "holder": "root-alice",
+                    "key": "alice-k1"
+                  },
+                  {
+                    "holder": "root-bob",
+                    "key": "bob-k1"
+                  }
+                ],
+                "snapshot": {
+                  "holders": [
+                    "snap-eve",
+                    "snap-frank"
+                  ],
+                  "paths": [
+                    "app",
+                    "lib"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "target": {
+                  "holders": [
+                    "tgt-heidi",
+                    "tgt-ivan"
+                  ],
+                  "paths": [
+                    "app/services",
+                    "lib/core"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "version": 2
+              }
+            ],
+            "snapshots": [],
+            "targets": []
+          },
+          "expect": {
+            "error_code": "E_ROOT_NEW_THRESHOLD",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "alice tries to be the old and the new quorum",
+          "package_name": "pkg-04",
+          "request_id": "req-04",
+          "trusted_time": 1300
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "05-reject-duplicate-key-one-seat",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "snapshot:stable:1",
+              "target:svc-a:1"
+            ],
+            "roots": [],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "target": "svc-a:1"
+                  }
+                ],
+                "expires_at": 8000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 1
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1001,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:svc-a",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "gen": 2,
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              }
+            ]
+          },
+          "expect": {
+            "error_code": "E_TARGET_THRESHOLD",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "carol signs twice with two keys; still one holder",
+          "package_name": "pkg-05",
+          "request_id": "req-05",
+          "trusted_time": 1300
+        },
+        {
+          "expect": {
+            "checked_targets": 0,
+            "ok": true
+          },
+          "kind": "query",
+          "query": {
+            "kind": "audit"
+          }
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "06-reject-target-version-floor",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "snapshot:stable:1",
+              "target:svc-a:1"
+            ],
+            "roots": [],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "target": "svc-a:1"
+                  }
+                ],
+                "expires_at": 8000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 1
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1001,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:a1",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              }
+            ]
+          },
+          "expect": {
+            "status": "committed",
+            "targets": {
+              "svc-a": 1
+            }
+          },
+          "kind": "update",
+          "label": "publish v1",
+          "package_name": "pkg-06a",
+          "request_id": "req-06a",
+          "trusted_time": 1100
+        },
+        {
+          "build": {
+            "documents": [
+              "snapshot:stable:2",
+              "target:svc-a:2"
+            ],
+            "roots": [],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "target": "svc-a:2"
+                  }
+                ],
+                "expires_at": 8000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 2
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1002,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:a2",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 2,
+                "version": 2
+              }
+            ]
+          },
+          "expect": {
+            "status": "committed",
+            "targets": {
+              "svc-a": 2
+            }
+          },
+          "kind": "update",
+          "label": "publish v2",
+          "package_name": "pkg-06b",
+          "request_id": "req-06b",
+          "trusted_time": 1150
+        },
+        {
+          "build": {
+            "documents": [
+              "target:svc-a:1"
+            ],
+            "roots": [],
+            "snapshots": [],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1001,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:a1",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              }
+            ]
+          },
+          "expect": {
+            "error_code": "E_MANIFEST_VERSION_ROLLBACK",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "then offer v1 again",
+          "package_name": "pkg-06c",
+          "request_id": "req-06c",
+          "trusted_time": 1200
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "07-allow-republished-old-content-new-signature",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "snapshot:stable:1",
+              "target:svc-a:1"
+            ],
+            "roots": [],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "target": "svc-a:1"
+                  }
+                ],
+                "expires_at": 8000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 1
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1001,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:same-bytes",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              }
+            ]
+          },
+          "expect": {
+            "status": "committed",
+            "targets": {
+              "svc-a": 1
+            }
+          },
+          "kind": "update",
+          "label": "publish svc-a v1",
+          "package_name": "pkg-07a",
+          "request_id": "req-07a",
+          "trusted_time": 1100
+        },
+        {
+          "build": {
+            "documents": [
+              "snapshot:stable:2",
+              "target:svc-a:2"
+            ],
+            "roots": [],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "target": "svc-a:2"
+                  }
+                ],
+                "expires_at": 8000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 2
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1002,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:same-bytes",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 2,
+                "version": 2
+              }
+            ]
+          },
+          "expect": {
+            "status": "committed",
+            "targets": {
+              "svc-a": 2
+            }
+          },
+          "kind": "update",
+          "label": "re-issue identical bytes as v2 with a fresh signature",
+          "package_name": "pkg-07b",
+          "request_id": "req-07b",
+          "trusted_time": 1200
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "08-reject-mixed-snapshot-target",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "snapshot:stable:1",
+              "target:svc-a:1"
+            ],
+            "roots": [],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "override": {
+                      "path": "app/services/other.bin"
+                    },
+                    "target": "svc-a:1"
+                  }
+                ],
+                "expires_at": 8000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 1
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1001,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:good",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              }
+            ]
+          },
+          "expect": {
+            "error_code": "E_TARGET_PATH_MISMATCH",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "target signed for snapshot v1 but snapshot v1 locks something else",
+          "package_name": "pkg-08",
+          "request_id": "req-08",
+          "trusted_time": 1100
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "09-reject-expired-exact",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "snapshot:stable:1",
+              "target:svc-a:1"
+            ],
+            "roots": [],
+            "snapshots": [
+              {
+                "channel": "stable",
+                "entries": [
+                  {
+                    "target": "svc-a:1"
+                  }
+                ],
+                "expires_at": 5000,
+                "issued_at": 1000,
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "snap-eve",
+                    "key": "eve-k1"
+                  },
+                  {
+                    "holder": "snap-frank",
+                    "key": "frank-k1"
+                  }
+                ],
+                "version": 1
+              }
+            ],
+            "targets": [
+              {
+                "channel": "stable",
+                "expires_at": 8000,
+                "id": "svc-a",
+                "issued_at": 1001,
+                "path": "app/services/svc-a.bin",
+                "payload": "text:x",
+                "purpose": "runtime",
+                "repo_tag": "core",
+                "root_version": 1,
+                "sign": [
+                  {
+                    "holder": "tgt-heidi",
+                    "key": "heidi-k1"
+                  },
+                  {
+                    "holder": "tgt-ivan",
+                    "key": "ivan-k1"
+                  }
+                ],
+                "snapshot_version": 1,
+                "version": 1
+              }
+            ]
+          },
+          "expect": {
+            "error_code": "E_SNAPSHOT_EXPIRED",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "snapshot expires exactly at trusted_time",
+          "package_name": "pkg-09",
+          "request_id": "req-09",
+          "trusted_time": 5000
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    },
+    {
+      "bootstrap": {
+        "root": {
+          "expires_at": 9000,
+          "issued_at": 1000,
+          "root": {
+            "holders": [
+              "root-alice",
+              "root-bob",
+              "root-carol"
+            ],
+            "threshold": 2
+          },
+          "sign": [
+            {
+              "holder": "root-alice",
+              "key": "alice-k1"
+            },
+            {
+              "holder": "root-bob",
+              "key": "bob-k1"
+            }
+          ],
+          "snapshot": {
+            "holders": [
+              "snap-eve",
+              "snap-frank"
+            ],
+            "paths": [
+              "app",
+              "lib"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "target": {
+            "holders": [
+              "tgt-heidi",
+              "tgt-ivan"
+            ],
+            "paths": [
+              "app/services",
+              "lib/core"
+            ],
+            "tags": [
+              "core"
+            ],
+            "threshold": 2
+          },
+          "version": 1
+        },
+        "trusted_time": 1000
+      },
+      "name": "10-reject-root-role-duplicate-signer",
+      "steps": [
+        {
+          "build": {
+            "documents": [
+              "root:2"
+            ],
+            "roots": [
+              {
+                "expires_at": 9200,
+                "issued_at": 1000,
+                "root": {
+                  "holders": [
+                    "root-alice",
+                    "root-bob",
+                    "root-carol"
+                  ],
+                  "threshold": 2
+                },
+                "sign": [
+                  {
+                    "gen": 1,
+                    "holder": "root-alice",
+                    "key": "alice-k1"
+                  },
+                  {
+                    "gen": 3,
+                    "holder": "root-alice",
+                    "key": "alice-k1"
+                  }
+                ],
+                "snapshot": {
+                  "holders": [
+                    "snap-eve",
+                    "snap-frank"
+                  ],
+                  "paths": [
+                    "app",
+                    "lib"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "target": {
+                  "holders": [
+                    "tgt-heidi",
+                    "tgt-ivan"
+                  ],
+                  "paths": [
+                    "app/services",
+                    "lib/core"
+                  ],
+                  "tags": [
+                    "core"
+                  ],
+                  "threshold": 2
+                },
+                "version": 2
+              }
+            ],
+            "snapshots": [],
+            "targets": []
+          },
+          "expect": {
+            "error_code": "E_ROOT_OLD_THRESHOLD",
+            "status": "rejected"
+          },
+          "kind": "update",
+          "label": "alice+carol sign as old quorum (only 2 distinct holders) is fine, but",
+          "package_name": "pkg-10",
+          "request_id": "req-10",
+          "trusted_time": 1100
+        }
+      ],
+      "tenant": {
+        "holders": {
+          "root-alice": {
+            "keys": {
+              "alice-k1": "91ac28a38b0cfa88ea6607f61ffe7a366f8174e3f48264054396e52e009d7ad9"
+            },
+            "role": "root"
+          },
+          "root-bob": {
+            "keys": {
+              "bob-k1": "6f62f15b562e22644ec093fb7c0e3fecd8a4b6318d679ed81d2fa0e3e23e7e9e"
+            },
+            "role": "root"
+          },
+          "root-carol": {
+            "keys": {
+              "carol-k1": "c40ff15942769df44ba7768f415fa3ac663e9bef43d9627a0767f9d4599de5db",
+              "carol-k2": "318a4b3ef973fb270a70715c8adc686a922b459153cb8f9c9d1d7247c1b5b340"
+            },
+            "role": "root"
+          },
+          "root-dave": {
+            "keys": {
+              "dave-k1": "676ab295f14dc6c6bd3e2c98f05b2c1ba8c00965cf42575172823c47d72dec42"
+            },
+            "role": "root"
+          },
+          "snap-eve": {
+            "keys": {
+              "eve-k1": "e6607be2342a6eab487b0bb4d382624807b094c3648b3a3487238ed9e1f4cb9f"
+            },
+            "role": "snapshot"
+          },
+          "snap-frank": {
+            "keys": {
+              "frank-k1": "37eee9441759a2e112daa8079f4a82f9a7a5f46cf150c3a3c7dea76b161ddd3b"
+            },
+            "role": "snapshot"
+          },
+          "tgt-heidi": {
+            "keys": {
+              "heidi-k1": "f6381d5a5ee34896ead348383384204402175f0ada2e9f0f0cef6f385cdf4ac8"
+            },
+            "role": "target"
+          },
+          "tgt-ivan": {
+            "keys": {
+              "ivan-k1": "6c745c156ee601a47a97383aee80575f8e981cb2eaad40e6f70ce2d9e015b0c6"
+            },
+            "role": "target"
+          }
+        },
+        "tenant": "acme-updates"
+      }
+    }
+  ],
+  "format": "simupd-cases/1"
+}
